@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# /etc/rc.modules: module initialization script
+#
+
+/sbin/depmod -a
+# end of file
