@@ -14,7 +14,7 @@ if [ -d /usr/share/fonts/X11 ]; then
 	fi
     done
 fi
-if [ -d /var/cache/fontconfig ] && [ -z "`/bin/ls /var/cache/fontconfig`"];then
+if [ -d /var/cache/fontconfig ] && [ -z "`/bin/ls /var/cache/fontconfig`" ];then
 	fc-cache &> /dev/null
 fi
 

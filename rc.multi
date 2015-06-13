@@ -15,12 +15,12 @@ fi
 if [ "$SYSLOG" -o "${SERVICES[*]}" ]; then
 	echo -n " starting services:"
 	if [ -f /etc/rc.d/$SYSLOG -a -x /etc/rc.d/$SYSLOG ]; then
-		echo -n " $SYSLOG"
+		echo -n " $SYSLOG "
 		/etc/rc.d/$SYSLOG start &> /dev/null || echo -n "[ERROR]"
 	fi
 	for service in ${SERVICES[@]}; do
-		echo -n "$service"
-		/etc/rc.d/$service start &> /tmp/rc $$ || -n "[ERROR]"
+		echo -n "$service "
+		/etc/rc.d/$service start &> /tmp/rc.$$ || -n "[ERROR]"
 		/usr/bin/logger -t $service -f /tmp/rc.$$
 		/bin/rm -f /tmp/rc.$$
 	done

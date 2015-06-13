@@ -38,7 +38,7 @@ fi
 # unmount file systems
 /bin/umount -a -d -r -t nosysfs,noproc,nodevtmpfs
 if [ -x /sbin/lvm ]; then
-	/sbin/vgcange --ignorelockingfailure -a n
+	/sbin/vgchange --ignorelockingfailure -a n
 fi
 /bin/umount -a -r
 # remount root filesystem read-only
