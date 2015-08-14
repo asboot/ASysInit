@@ -17,6 +17,7 @@ files: create-dir
 	install -d -m ${MODE} rc.modules ${ETCDIR}/
 	install -d -m ${MODE} rc.multi ${ETCDIR}/
 	install -d -m ${MODE} rc.shutdown ${ETCDIR}/
+	install -d -m ${MODE} rc.4 ${ETCDIR}/
 	install -d -m ${MODE} rc.single ${ETCDIR}/
 	install -d -m ${MODE} inittab ${ETCDIR}/
 	install -d -m ${MODE} rc.d/crond ${ETCDIR}/rc.d/
@@ -33,6 +34,7 @@ uninstall:
 	rm -rf ${ETCDIR}/rc.modules
 	rm -rf ${ETCDIR}/rc.multi
 	rm -rf ${ETCDIR}/rc.shutdown
+	rm -rf ${ETCDIR}/rc.4
 	rm -rf ${ETCDIR}/rc.single
 	rm -rf ${ETCDIR}/rc.d
 	rm -rf ${ETCDIR}/inittab

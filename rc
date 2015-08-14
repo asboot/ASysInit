@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # /etc/rc: system boot script
+# author by sam korep
 #
 echo " The System is comming up. please wait."
 #Load configuration

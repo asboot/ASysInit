@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # /etc/rc.d/net: start/stop network interface
 #

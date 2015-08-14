@@ -1,0 +1,38 @@
+#!/bin/sh
+#
+# /etc/rc.4: running display manager
+# author by sam korep
+# dibuat sam korep terinspirasi oleh bootscript distro slackware untuk mengakses display manager
+#
+
+# tampilkan kepada user apa yang terjadi
+echo "memulai X11 manajer sesi..."
+# coba menggunakan kdm kdm
+if [ -x /opt/kde/bin/kdm ]; then
+    exec /opt/kde/bin/kdm -nodaemon
+elif [ -x /usr/bin/kdm ]; then
+    exec /usr/bin/kdm -nodaemon
+fi
+# jika kamu menggunakan XDM , ok akan kami support juga
+if [ -x /usr/bin/xdm ]; then
+    exec /usr/bin/xdm -nodaemon
+elif [ -x /usr/X11R6/bin/xdm ]; then
+    exec /usr/X11R6/bin/xdm -nodaemon
+fi
+# mencoba menggunakan GNOME's gdm session manager. 
+# untuk menggunakan sebagai default:
+if [ -x /usr/bin/gdm]; then
+    exec /usr/bin/gdm -nodaemon
+fi
+# seseorang menaruh gdm di /usr/sbin
+# jadi yah panggil aja hehe
+if [ -x /usr/sbin/gdm ]; then
+    exec /usr/sbin/gdm -nodaemon
+fi
+# jika tak bisa ketemu aka error
+echo 
+echo "kamu ngga punya display manager gan kamu ngga bisa pake runlevel 4 tanpa"
+echo " install salah satu dari display manager yang biasa digunakan"
+sleep 40
+
+# end of file
