@@ -3,11 +3,17 @@
 # /etc/rc.4: running display manager
 # author by sam korep
 # dibuat sam korep terinspirasi oleh bootscript distro slackware untuk mengakses display manager
+# display managernya antara lain : lightdm,kdm,xdm,gdm
 #
 
 # tampilkan kepada user apa yang terjadi
 echo "memulai X11 manajer sesi..."
-# coba menggunakan kdm kdm
+#mencoba untuk mengakses lightdm terlebih dahulu
+#seperti ini prosesnya
+if [ -x /usr/bin/lightdm ]; then
+    exec /usr/bin/lightdm -nodaemon
+fi
+# coba menggunakan kdm
 if [ -x /opt/kde/bin/kdm ]; then
     exec /opt/kde/bin/kdm -nodaemon
 elif [ -x /usr/bin/kdm ]; then
