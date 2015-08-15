@@ -3,7 +3,7 @@
 # /etc/rc.4: running display manager
 # author by sam korep
 # dibuat sam korep terinspirasi oleh bootscript distro slackware untuk mengakses display manager
-# display managernya antara lain : lightdm,kdm,xdm,gdm
+# display managernya antara lain : lightdm,kdm,xdm,gdm dan sddm (penerus kdm)
 #
 
 # tampilkan kepada user apa yang terjadi
@@ -34,6 +34,10 @@ fi
 # jadi yah panggil aja hehe
 if [ -x /usr/sbin/gdm ]; then
     exec /usr/sbin/gdm -nodaemon
+fi
+# mencoba mengakses sddm dulu bray
+if [ -x /usr/bin/sddm ]; then
+    exec /usr/bin/sddm -nodaemon
 fi
 # jika tak bisa ketemu aka error
 echo 
